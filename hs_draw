@@ -1,0 +1,7 @@
+sham_deck = []
+sham_deck << 'rockbiter weapon'
+sham_deck << 'rockbiter weapon'
+sham_deck << 'acidic swamp ooze'
+sham_deck << 'acidic swamp ooze'
+
+puts sham_deck
