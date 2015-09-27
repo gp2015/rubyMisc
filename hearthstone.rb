@@ -1,3 +1,5 @@
+# Creating hearthstone card drawing mechanic to show how real HS drawing is BULLSHIT! a la Penn & Teller
+
 # Need array of cards in Deck
 
 =begin
@@ -90,9 +92,32 @@ end
 class Warrior < Hero
 end
 
+class Card
+
+end
+
+class Minion < Card
+	attack = 0
+	health = 0
+end
+
+class Spell < Card
+
+end
+
 class Deck
+end
+
+class Player
+	hand = 0
+	
+	def draw
+		self.hand += 1
+	end
 end
 
 eu_shaman = Shaman.new
 puts eu_shaman.hero_power_getter
 hand = [] # hand.draw(number) method?
+computer = Player.new
+player = Player.new
