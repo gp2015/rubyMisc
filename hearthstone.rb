@@ -26,14 +26,37 @@ stormwind champion 2
 class Hero
 	#@@
 	
-	# need hero stats
-	# hp = 30, armor = 0, attack = 0, cards?, hero_class?
+	public
+	def initialize
+		@hp = 30
+		@armor = 0
+		@attack = 0
+		@hand = 0
+	end
+
+	def get_stat(stat)
+		stat.downcase!
+		if stat == "hp"
+			return @hp
+		elsif stat == "armor"
+			return @armor
+		elsif stat == "attack"
+			return @attack
+		elsif stat == hand
+			return @hand
+		else
+			return "Invalid hero stat"
+		end
+	end
 	
 	# Setting 'hero_power' need to make hashes {power name: stats}
 	def hero_power_setter(hero_class)
+			
+		hero_powers = {"druid" => {"shapeshift" => "+1 Attack this turn, +1 Armor"}}
+			
 		case hero_class.downcase!
 			when "druid"
-				hero_power = "shapeshift"
+				hero_power = hero_powers["druid"]
 			when "hunter"
 				hero_power = "steady shot"
 			when "mage"
@@ -45,7 +68,7 @@ class Hero
 			when "rogue"
 				hero_power = "dagger mastery"
 			when "shaman"
-				hero_power = "totemic call"				
+				hero_power = "totemic call"		
 			when "warlock"
 				hero_power = "life tap"
 			when "warrior"
@@ -62,9 +85,19 @@ class Hero
 		return hero_power
 	end
 	
+	def draw
+		self.hand += 1
+	end
+	
 end
 
 class Druid < Hero
+
+	def shapeshift
+		@attack += 1
+		@armor += 1
+	end
+
 end
 
 class Hunter < Hero
@@ -108,16 +141,9 @@ end
 class Deck
 end
 
-class Player
-	hand = 0
-	
-	def draw
-		self.hand += 1
-	end
-end
-
-eu_shaman = Shaman.new
-puts eu_shaman.hero_power_getter
+druid = Druid.new
+druid.send(:initialize)
+puts druid.hero_power_getter
+druid.shapeshift
+puts druid.get_stat("armor")
 hand = [] # hand.draw(number) method?
-computer = Player.new
-player = Player.new
