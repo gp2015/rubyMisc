@@ -162,18 +162,20 @@ end
 
 class Paladin < Hero
 
+	
+
 	def reinforce
 		
 		# Add a new silver_hand_recruit hash item when summoning, to keep track of more than 1 recruit?
 		
 		@board.each do |key, value|
 			summoned = false
-			silver_hand_recruits = {0 => nil}
-			if summoned == false and @board[key] == nil
+			silver_hand_recruits = {0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil}
+			recruit_slot = 0
 			
-				silver_hand_recruits[0] = Minion.new("silver hand recruit", 1, 1)
-				
-				@board[key] = (silver_hand_recruit + "#{recruit_num}")
+			if summoned == false and @board[key] == nil
+				silver_hand_recruits[recruit_slot] = Minion.new("silver hand recruit", 1, 1)
+				@board[key] = silver_hand_recruits[recruit_slot]
 				summoned = true
 				puts "Silver Hand Recruit summoned"
 				break
