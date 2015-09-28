@@ -164,15 +164,16 @@ class Paladin < Hero
 
 	def reinforce
 		
-		# need to increase recruit_num by 1 each time summoned, rename new recruit with appended number
-		@recruit_num = 0
-		
-		silver_hand_recruit = Minion.new("silver hand recruit", 1, 1)
+		# Add a new silver_hand_recruit hash item when summoning, to keep track of more than 1 recruit?
 		
 		@board.each do |key, value|
 			summoned = false
+			silver_hand_recruits = {0 => nil}
 			if summoned == false and @board[key] == nil
-				@board[key] = silver_hand_recruit
+			
+				silver_hand_recruits[0] = Minion.new("silver hand recruit", 1, 1)
+				
+				@board[key] = (silver_hand_recruit + "#{recruit_num}")
 				summoned = true
 				puts "Silver Hand Recruit summoned"
 				break
