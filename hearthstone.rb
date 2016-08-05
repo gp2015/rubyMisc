@@ -16,7 +16,7 @@ chillwind yeti 2
 gnomish inventor 2
 sen'jin shieldmasta 2
 bloodlust 1
-frostwolf warlod 2
+frostwolf warlord 2
 boulderfist ogre 2
 fire elemental 2
 stormwind champion 2
