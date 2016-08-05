@@ -1,4 +1,4 @@
-# Creating hearthstone card drawing mechanic to show how real HS drawing is BULLSHIT! a la Penn & Teller
+# Creating hearthstone card drawing mechanic to show how real HS drawing is phony! a la Penn & Teller
 
 # Need array of cards in Deck
 
