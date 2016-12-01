@@ -3,7 +3,8 @@ require "data_mapper"
 require_relative "bookmark"
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/bookmarks.db")
-DataMapper.finalize.auto_upgrade!
+# DataMapper.finalize.auto_upgrade!
+DataMapper.finalize.auto_migrate!
 
 require "dm-serializer"
 
@@ -34,4 +35,19 @@ get "/bookmarks/:id" do
   bookmark = Bookmark.get(id)
   content_type :json
   bookmark.to_json
+end
+
+put "/bookmarks/:id" do
+  id = params[:id]
+  bookmark = Bookmark.get(id)
+  input = params.slice "url", "title"
+  bookmark.update input
+  204 # No Content
+end
+
+delete "/bookmarks/:id" do
+  id = params[:id]
+  bookmark = Bookmark.get(id)
+  bookmark.destroy
+  200 # OK
 end
