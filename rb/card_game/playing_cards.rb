@@ -13,14 +13,15 @@ module Playing_Cards
         (1..13).each do |number|
   
           case number
-            when 1
-              number = "Ace"
-            when 11
-              number = "Jack"
-            when 12
-              number = "Queen"
-            when 13
-              number = "King"
+          when 1
+            number = "Ace"
+          when 11
+            number = "Jack"
+          when 12
+            number = "Queen"
+          when 13
+            number = "King"
+          else
           end
     
           @deck.push("#{number} of #{suit}")
@@ -99,5 +100,5 @@ module Playing_Cards
     end
   
   end
-  
+
 end
